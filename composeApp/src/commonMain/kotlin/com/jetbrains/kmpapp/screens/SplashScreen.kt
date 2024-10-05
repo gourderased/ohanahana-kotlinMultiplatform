@@ -2,6 +2,7 @@ package com.jetbrains.kmpapp.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,33 +24,28 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.jetbrains.kmpapp.LoadImage
 import com.jetbrains.kmpapp.pretendardFontFamily
 import kmp_app_template.composeapp.generated.resources.Res
-import kmp_app_template.composeapp.generated.resources.bus_stop
-import kmp_app_template.composeapp.generated.resources.logo
+import kmp_app_template.composeapp.generated.resources.ic_bus_stop
+import kmp_app_template.composeapp.generated.resources.ic_logo
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun SplashScreen(navController: NavHostController) {
-    LaunchedEffect(Unit) {
-        delay(1000)
-        navController.navigate("sensorData") {
-            popUpTo("splash") { inclusive = true } // 스플래시 스크린 제거
-        }
-    }
+//    LaunchedEffect(Unit) {
+//        delay(1000)
+//        navController.navigate("sensorData") {
+//            popUpTo("splash") { inclusive = true }
+//        }
+//    }
     Box(
         modifier = Modifier
-            .fillMaxWidth()
-            .background(
-                brush = Brush.verticalGradient(
-                    colors = listOf(
-                        Color(0xFFFBFBFB) ,
-                        Color(0xFFE5DCE5)
-                    )
-                )
-            )
+            .fillMaxSize()
     ) {
+        LoadImage("bg_splash", "bg_splash", Modifier.fillMaxSize())
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -58,15 +54,12 @@ fun SplashScreen(navController: NavHostController) {
             verticalArrangement = Arrangement.Center
         ) {
 
-            Image(
-                painter = painterResource(Res.drawable.logo),
-                contentDescription = "Logo",
-                modifier = Modifier.size(80.dp)
-            )
+
+            LoadImage("ic_logo", "logo")
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "오하나하나", // 스플래시 화면에 표시될 텍스트
+                text = "오하나하나",
                 style = TextStyle(
                     fontSize = 24.sp,
                     fontWeight = FontWeight.SemiBold,
@@ -83,12 +76,12 @@ fun SplashScreen(navController: NavHostController) {
             verticalArrangement = Arrangement.Bottom
         ) {
             Image(
-                painter = painterResource(Res.drawable.bus_stop),
+                painter = painterResource(Res.drawable.ic_bus_stop),
                 contentDescription = "bus_stop",
                 modifier = Modifier
                     .size(180.dp)
             )
-            Spacer(modifier = Modifier.height(44.dp))
+            Spacer(modifier = Modifier.height(40.dp))
         }
     }
 }
