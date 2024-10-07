@@ -54,6 +54,8 @@ kotlin {
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.navigation.compose)
 
+            implementation(libs.haze)
+            implementation(libs.haze.material)
         }
     }
 }
@@ -66,8 +68,8 @@ android {
         applicationId = "com.ohana.cloudcompute"
         minSdk = 24
         targetSdk = 35
-        versionCode = 3
-        versionName = "2.0"
+        versionCode = 7
+        versionName = "2.01"
     }
     packaging {
         resources {
@@ -91,6 +93,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.ui.android)
+    implementation(libs.androidx.foundation.android)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
 }

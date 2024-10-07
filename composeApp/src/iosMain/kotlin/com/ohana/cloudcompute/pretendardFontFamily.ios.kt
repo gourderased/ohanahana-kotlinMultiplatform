@@ -14,5 +14,10 @@ actual val pretendardFontFamily: FontFamily = FontFamily(
         identity = "Pretendard-SemiBold",
         data = loadFontData("Pretendard-SemiBold.ttf"),
         weight = FontWeight.SemiBold
+    ),
+    Font(
+        identity = "Pretendard-Medium",
+        data = loadFontData("Pretendard-Medium.ttf"),
+        weight = FontWeight.Medium
     )
 )

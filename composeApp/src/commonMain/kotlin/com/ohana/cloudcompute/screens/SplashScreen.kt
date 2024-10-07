@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.ohana.cloudcompute.LoadImage
+import com.ohana.cloudcompute.pretendardFontFamily
 import kmp_app_template.composeapp.generated.resources.Res
 import kmp_app_template.composeapp.generated.resources.ic_bus_stop
 import kotlinx.coroutines.delay
@@ -29,7 +30,7 @@ import org.jetbrains.compose.resources.painterResource
 @Composable
 fun SplashScreen(navController: NavHostController) {
     LaunchedEffect(Unit) {
-        delay(1000)
+        delay(3000)
         navController.navigate("sensorData") {
             popUpTo("splash") { inclusive = true }
         }
@@ -58,7 +59,7 @@ fun SplashScreen(navController: NavHostController) {
                     fontSize = 24.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = Color(0xFF42023C),
-                    fontFamily = com.ohana.cloudcompute.pretendardFontFamily
+                    fontFamily = pretendardFontFamily
                 ),
             )
         }

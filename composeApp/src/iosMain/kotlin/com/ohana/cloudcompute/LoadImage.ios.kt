@@ -7,6 +7,8 @@ import androidx.compose.ui.layout.ContentScale
 import kmp_app_template.composeapp.generated.resources.Res
 import kmp_app_template.composeapp.generated.resources.bg_splash
 import kmp_app_template.composeapp.generated.resources.ic_logo
+import kmp_app_template.composeapp.generated.resources.ic_logo_home_congestion
+import kmp_app_template.composeapp.generated.resources.ic_refresh
 import org.jetbrains.compose.resources.painterResource
 
 
@@ -14,7 +16,9 @@ import org.jetbrains.compose.resources.painterResource
 actual fun LoadImage(resourceName: String, contentDescription: String?, modifier: Modifier) {
     val painter = when (resourceName) {
         "bg_splash" -> painterResource(Res.drawable.bg_splash)
+        "ic_refresh" -> painterResource(Res.drawable.ic_refresh)
         "ic_logo" -> painterResource(Res.drawable.ic_logo)
+        "ic_logo_home_congestion" -> painterResource(Res.drawable.ic_logo_home_congestion)
         else -> painterResource(Res.drawable.bg_splash) // 기본값 설정
     }
     Image(

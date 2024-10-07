@@ -12,6 +12,7 @@ actual fun LoadImage(resourceName: String, contentDescription: String?, modifier
         "bg_splash" -> R.drawable.bg_splash
         "ic_logo" -> R.drawable.ic_logo
         "ic_refresh" -> R.drawable.ic_refresh
+        "ic_logo_home_congestion" -> R.drawable.ic_logo_home_congestion
         else -> R.drawable.bg_splash
     }
 
