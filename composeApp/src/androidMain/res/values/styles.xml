@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Material.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="android:windowIsTranslucent">true</item> <!-- 스플래시 화면 비활성화 -->
+</style></resources>
