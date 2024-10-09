@@ -56,6 +56,8 @@ kotlin {
 
             implementation(libs.haze)
             implementation(libs.haze.material)
+            implementation(libs.compose.boxshadow)
+            implementation(libs.compose.dropshadow)
         }
     }
 }
