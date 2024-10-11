@@ -13,9 +13,11 @@ kamelCoreAndroid = "0.9.5"
 coreKtx = "1.13.0"
 navigationRuntimeKtx = "2.8.2"
 uiAndroid = "1.7.3"
-haze = "0.9.0-beta03"
 foundationAndroid = "1.7.3"
 shadow = "0.2.2"
+compose-constraintlayout = "0.5.0-alpha03"
+
+
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -35,12 +37,10 @@ kamel-core-android = { group = "media.kamel", name = "kamel-core-android", versi
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
 androidx-ui-android = { group = "androidx.compose.ui", name = "ui-android", version.ref = "uiAndroid" }
-haze = { module = "dev.chrisbanes.haze:haze", version.ref = "haze"}
-haze-material = { module = "dev.chrisbanes.haze:haze-materials", version.ref = "haze"}
 androidx-foundation-android = { group = "androidx.compose.foundation", name = "foundation-android", version.ref = "foundationAndroid" }
 compose-dropshadow = { module = "io.github.kubode.compose.shadow:compose-dropshadow", version.ref = "shadow" }
 compose-boxshadow = { module = "io.github.kubode.compose.shadow:compose-boxshadow", version.ref = "shadow" }
-
+compose-constraintlayout = { module = "tech.annexflow.compose:constraintlayout-compose-multiplatform", version.ref = "compose-constraintlayout"}
 
 
 [plugins]

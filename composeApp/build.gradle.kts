@@ -54,10 +54,9 @@ kotlin {
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.navigation.compose)
 
-            implementation(libs.haze)
-            implementation(libs.haze.material)
             implementation(libs.compose.boxshadow)
             implementation(libs.compose.dropshadow)
+            implementation(libs.compose.constraintlayout)
         }
     }
 }
