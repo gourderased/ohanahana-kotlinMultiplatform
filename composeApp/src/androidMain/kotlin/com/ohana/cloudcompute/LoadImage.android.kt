@@ -13,7 +13,9 @@ actual fun LoadImage(resourceName: String, contentDescription: String?, modifier
         "ic_logo" -> R.drawable.ic_logo
         "ic_refresh" -> R.drawable.ic_refresh
         "ic_logo_home_congestion" -> R.drawable.ic_logo_home_congestion
-        else -> R.drawable.bg_splash
+        "ic_arrow" -> R.drawable.ic_arrow
+        "ic_line" -> R.drawable.ic_line
+        else -> R.drawable.ic_logo
     }
 
     Image(

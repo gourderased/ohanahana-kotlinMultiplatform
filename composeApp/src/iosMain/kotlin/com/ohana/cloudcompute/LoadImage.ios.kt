@@ -9,6 +9,8 @@ import kmp_app_template.composeapp.generated.resources.bg_splash
 import kmp_app_template.composeapp.generated.resources.ic_logo
 import kmp_app_template.composeapp.generated.resources.ic_logo_home_congestion
 import kmp_app_template.composeapp.generated.resources.ic_refresh
+import kmp_app_template.composeapp.generated.resources.ic_arrow
+import kmp_app_template.composeapp.generated.resources.ic_line
 import org.jetbrains.compose.resources.painterResource
 
 
@@ -19,6 +21,8 @@ actual fun LoadImage(resourceName: String, contentDescription: String?, modifier
         "ic_refresh" -> painterResource(Res.drawable.ic_refresh)
         "ic_logo" -> painterResource(Res.drawable.ic_logo)
         "ic_logo_home_congestion" -> painterResource(Res.drawable.ic_logo_home_congestion)
+        "ic_arrow" -> painterResource(Res.drawable.ic_arrow)
+        "ic_line" -> painterResource(Res.drawable.ic_line)
         else -> painterResource(Res.drawable.bg_splash) // 기본값 설정
     }
     Image(

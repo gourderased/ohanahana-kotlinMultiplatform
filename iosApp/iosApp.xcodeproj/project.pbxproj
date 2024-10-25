@@ -13,6 +13,7 @@
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		FD2F22B62CAE5F0B0039E481 /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD2F22B42CAE5F0B0039E481 /* Pretendard-Regular.ttf */; };
 		FD2F22B72CAE5F0B0039E481 /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD2F22B52CAE5F0B0039E481 /* Pretendard-SemiBold.ttf */; };
+		FDCEC31A2CCB5B450049BFA8 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDCEC3192CCB5B450049BFA8 /* Pretendard-Bold.ttf */; };
 		FDFC760D2CB3D20F000AF40B /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDFC760C2CB3D20F000AF40B /* Pretendard-Medium.ttf */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		AB3632DC29227652001CCB65 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		FD2F22B42CAE5F0B0039E481 /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
 		FD2F22B52CAE5F0B0039E481 /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
+		FDCEC3192CCB5B450049BFA8 /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
 		FDFC760C2CB3D20F000AF40B /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +60,7 @@
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
+				FDCEC3192CCB5B450049BFA8 /* Pretendard-Bold.ttf */,
 				FDFC760C2CB3D20F000AF40B /* Pretendard-Medium.ttf */,
 				FD2F22B42CAE5F0B0039E481 /* Pretendard-Regular.ttf */,
 				FD2F22B52CAE5F0B0039E481 /* Pretendard-SemiBold.ttf */,
@@ -165,6 +168,7 @@
 				FD2F22B62CAE5F0B0039E481 /* Pretendard-Regular.ttf in Resources */,
 				FDFC760D2CB3D20F000AF40B /* Pretendard-Medium.ttf in Resources */,
 				FD2F22B72CAE5F0B0039E481 /* Pretendard-SemiBold.ttf in Resources */,
+				FDCEC31A2CCB5B450049BFA8 /* Pretendard-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

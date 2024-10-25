@@ -3,6 +3,7 @@ package com.ohana.cloudcompute.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,6 +34,7 @@ import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.navigation.NavController
 import com.ohana.cloudcompute.LoadImage
 import com.ohana.cloudcompute.data.CongestionObject
 import com.ohana.cloudcompute.pretendardFontFamily
@@ -46,7 +48,7 @@ import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun SensorDataScreen(sensorData: CongestionObject) {
+fun SensorDataScreen(sensorData: CongestionObject, navController: NavController) {
 //    Koin에서 ViewModel 가져오기
     val viewModel: SensorDataViewModel = koinViewModel()
     val sensorDataState = viewModel.sensorData.collectAsState() // 센서 데이터 상태를 수집
@@ -100,7 +102,7 @@ fun SensorDataScreen(sensorData: CongestionObject) {
             text = "주안역 방향",
             style = TextStyle(
                 fontSize = 16.sp,
-                fontWeight = FontWeight.Normal,
+                fontWeight = FontWeight.Bold,
                 fontFamily = pretendardFontFamily
             ),
             modifier = Modifier.padding(horizontal = 24.dp)
@@ -464,6 +466,7 @@ fun SensorDataScreen(sensorData: CongestionObject) {
                     bottom.linkTo(guidelineTop91)
                 }
                 .fillMaxWidth()
+                .clickable { navController.navigate("projectInfo") }
         ) {
             Row(
                 modifier = Modifier

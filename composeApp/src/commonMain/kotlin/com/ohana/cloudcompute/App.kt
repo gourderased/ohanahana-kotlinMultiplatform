@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.ohana.cloudcompute.screens.ProjectInfoScreen
 import com.ohana.cloudcompute.screens.SensorDataScreen
 import com.ohana.cloudcompute.screens.SensorDataViewModel
 import com.ohana.cloudcompute.screens.SplashScreen
@@ -25,7 +26,7 @@ fun App() {
 
             NavHost(
                 navController = navController,
-                startDestination = "splash",
+                startDestination = "projectInfo",
             ) {
                 composable("splash") {
                     SplashScreen(navController)
@@ -35,8 +36,11 @@ fun App() {
                     val sensorData by viewModel.sensorData.collectAsState()
 
                     sensorData?.let {
-                        SensorDataScreen(it)
+                        SensorDataScreen(it, navController)
                     }
+                }
+                composable("projectInfo") {
+                    ProjectInfoScreen(navController)
                 }
 
             }
