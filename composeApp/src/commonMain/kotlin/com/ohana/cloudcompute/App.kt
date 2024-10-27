@@ -9,6 +9,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.ohana.cloudcompute.screens.BusInfoScreen
+import com.ohana.cloudcompute.screens.GlobalLoadingScreen
+import com.ohana.cloudcompute.screens.MainFeatureScreen
 import com.ohana.cloudcompute.screens.ProjectInfoScreen
 import com.ohana.cloudcompute.screens.SensorDataScreen
 import com.ohana.cloudcompute.screens.SensorDataViewModel
@@ -23,10 +26,10 @@ fun App() {
     MaterialTheme {
         Surface {
             val navController: NavHostController = rememberNavController()
-
+            GlobalLoadingScreen()
             NavHost(
                 navController = navController,
-                startDestination = "projectInfo",
+                startDestination = "splash",
             ) {
                 composable("splash") {
                     SplashScreen(navController)
@@ -42,7 +45,12 @@ fun App() {
                 composable("projectInfo") {
                     ProjectInfoScreen(navController)
                 }
-
+                composable("mainFeature") {
+                    MainFeatureScreen(navController)
+                }
+                composable("busInfo") {
+                    BusInfoScreen(navController)
+                }
             }
         }
 

@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -54,6 +53,7 @@ fun SensorDataScreen(sensorData: CongestionObject, navController: NavController)
     val sensorDataState = viewModel.sensorData.collectAsState() // 센서 데이터 상태를 수집
 
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
+
         // 가이드라인 생성
         val guidelineTop06 = createGuidelineFromTop(0.06f)
         val guidelineTop13 = createGuidelineFromTop(0.13f)
@@ -94,7 +94,7 @@ fun SensorDataScreen(sensorData: CongestionObject, navController: NavController)
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             LoadImage("ic_logo", "logo", Modifier.size(24.dp))
-            LoadImage("ic_refresh", "refresh", Modifier.size(24.dp))
+            LoadImage("ic_refresh", "refresh", Modifier.size(24.dp).clickable { LoadingState.show() })
         }
 
         // 주안역 방향 텍스트
@@ -137,7 +137,6 @@ fun SensorDataScreen(sensorData: CongestionObject, navController: NavController)
             modifier = Modifier
                 .padding(horizontal = 24.dp)
                 .fillMaxWidth()
-
                 .constrainAs(createRef()) {
                     top.linkTo(guidelineTop27)
                     bottom.linkTo(guidelineTop61)
@@ -520,7 +519,7 @@ fun SensorDataScreen(sensorData: CongestionObject, navController: NavController)
         // 대체 노선 찾기 버튼
         Box(
             modifier = Modifier
-                .padding(horizontal = 24.dp)
+                .padding(end = 24.dp)
                 .border(
                     brush = Brush.linearGradient(
                         colors = listOf(
@@ -555,6 +554,7 @@ fun SensorDataScreen(sensorData: CongestionObject, navController: NavController)
                     bottom.linkTo(guidelineTop98)
                     end.linkTo(parent.end)
                 }
+                .clickable { navController.navigate("busInfo") }
         ) {
             Row(
                 modifier = Modifier

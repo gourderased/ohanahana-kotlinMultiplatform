@@ -1,8 +1,12 @@
 package com.ohana.cloudcompute.di
 
+import com.ohana.cloudcompute.data.BusApi
+import com.ohana.cloudcompute.data.BusRepository
 import com.ohana.cloudcompute.data.KtorCongestionApi // 혼잡도 API 클래스
 import com.ohana.cloudcompute.data.CongestionApi // 혼잡도 API 인터페이스
 import com.ohana.cloudcompute.data.CongestionRepository // 혼잡도 리포지토리 클래스
+import com.ohana.cloudcompute.data.KtorBusApi
+import com.ohana.cloudcompute.screens.BusViewModel
 import com.ohana.cloudcompute.screens.SensorDataViewModel
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -27,11 +31,18 @@ val dataModule = module {
 
     // Ktor를 사용하여 혼잡도 API 구현체 제공
     single<CongestionApi> { KtorCongestionApi(get()) }
+    single<BusApi> {KtorBusApi(get())}
 
     // 혼잡도 데이터를 처리하는 리포지토리 제공
     single {
         CongestionRepository(get()).apply {
             initialize() // 리포지토리 초기화
+        }
+    }
+
+    single {
+        BusRepository(get()).apply {
+            initialize()
         }
     }
 }
@@ -40,6 +51,7 @@ val dataModule = module {
 val viewModelModule = module {
     // ListViewModel 및 DetailViewModel을 Koin에 등록
     factory { SensorDataViewModel(get()) }
+    factory { BusViewModel(get()) }
 }
 
 // Koin 초기화 함수

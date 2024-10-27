@@ -2,6 +2,7 @@ package com.ohana.cloudcompute.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.TabRowDefaults.Divider
@@ -36,6 +37,12 @@ fun ProjectInfoScreen(navController: NavController) {
         val guidelineTop25 = createGuidelineFromTop(0.25f)
         val guidelineTop30 = createGuidelineFromTop(0.30f)
 
+        val itemFirst = createRef()
+        val itemSecond = createRef()
+        val itemThird = createRef()
+        val itemBottom = createRef()
+
+
         // 헤더
         Box(
             modifier = Modifier
@@ -49,7 +56,10 @@ fun ProjectInfoScreen(navController: NavController) {
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp, vertical = 16.dp)) {
 
-            LoadImage("ic_arrow", "ic_arrow", Modifier.align(Alignment.CenterStart))
+            LoadImage(
+                "ic_arrow",
+                "ic_arrow",
+                Modifier.align(Alignment.CenterStart).clickable { navController.navigateUp() })
 
             Text(
                 text = "프로젝트 소개 및 이용 안내",
@@ -113,55 +123,161 @@ fun ProjectInfoScreen(navController: NavController) {
         }
 
         //항목 리스트
-        Box(
+        ItemRow(
+            titleSmall = "프로젝트 소개",
+            titleLarge = "주요 기능",
+            onClick = {
+                navController.navigate("mainFeature")
+            },
+            modifier = Modifier.constrainAs(itemFirst) {
+                top.linkTo(guidelineTop30)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }
+        )
+        ItemRow(
+            titleSmall = "이용 안내",
+            titleLarge = "혼잡도 기준",
+            onClick = {
+                navController.navigate("mainFeature")
+            },
+            modifier = Modifier.constrainAs(itemSecond) {
+                top.linkTo(itemFirst.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }
+        )
+        ItemRow(
+            titleSmall = "이용 안내",
+            titleLarge = "예상 대기 인원 및 대기 시간",
+            onClick = {
+                navController.navigate("mainFeature")
+            },
+            modifier = Modifier.constrainAs(itemThird) {
+                top.linkTo(itemSecond.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }
+        )
+        ItemRow(
+            titleSmall = "이용 안내",
+            titleLarge = "센서 작동 시간",
+            onClick = {
+                navController.navigate("mainFeature")
+            },
+            modifier = Modifier.constrainAs(createRef()) {
+                top.linkTo(itemThird.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }
+        )
+
+        Divider(
+            color = Color(0xffF1F1F1),
+            thickness = 1.dp,
             modifier = Modifier
-                .fillMaxWidth()
                 .constrainAs(createRef()) {
-                    top.linkTo(guidelineTop30)
+                    bottom.linkTo(itemBottom.top)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                 }
-                .padding(horizontal = 24.dp)
+                .fillMaxWidth()
+                .padding(bottom = 24.dp)
+        )
+
+        //하단 버그 제보 및 문의
+        Box(
+            modifier = Modifier
+                .constrainAs(itemBottom) {
+                    bottom.linkTo(parent.bottom)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }
+                .padding(bottom = 50.dp)
         ) {
+
+
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 20.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                    .padding(horizontal = 60.dp)
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
             ) {
-                Column {
-                    Text(
-                        text = "프로젝트 소개",
-                        style = TextStyle(
-                            fontSize = 12.sp,
-                            fontWeight = FontWeight.Normal,
-                            fontFamily = pretendardFontFamily
-                        ),
-                        color = Color(0xff666666),
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        text = "주요 기능",
-                        style = TextStyle(
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            fontFamily = pretendardFontFamily
-                        ),
-                        color = Color.Black,
-                    )
-                }
-                LoadImage("ic_line", "ic_line", Modifier)
+                Text(
+                    text = "버그 제보 및 문의 | ",
+                    style = TextStyle(
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Normal,
+                        fontFamily = pretendardFontFamily
+                    ),
+                    color = Color(0xff666666),
+                )
+                Text(
+                    text = "gourderased@gmail.com",
+                    style = TextStyle(
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Normal,
+                        fontFamily = pretendardFontFamily
+                    ),
+                    color = Color.Black,
+                )
             }
-            Divider(
-                color = Color(0xffF1F1F1),
-                thickness = 1.dp,
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .fillMaxWidth()
-            )
         }
-
     }
 }
 
+@Composable
+fun ItemRow(
+    titleSmall: String,
+    titleLarge: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 24.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 20.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column {
+                Text(
+                    text = titleSmall,
+                    style = TextStyle(
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Normal,
+                        fontFamily = pretendardFontFamily
+                    ),
+                    color = Color(0xff666666),
+                )
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = titleLarge,
+                    style = TextStyle(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        fontFamily = pretendardFontFamily
+                    ),
+                    color = Color.Black,
+                )
+            }
+            LoadImage(
+                "ic_line",
+                "ic_line",
+                Modifier.clickable { onClick() }
+            )
+        }
+        Divider(
+            color = Color(0xffF1F1F1),
+            thickness = 1.dp,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+        )
+    }
+}
