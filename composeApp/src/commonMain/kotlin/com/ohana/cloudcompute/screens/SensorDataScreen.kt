@@ -94,7 +94,7 @@ fun SensorDataScreen(sensorData: CongestionObject, navController: NavController)
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             LoadImage("ic_logo", "logo", Modifier.size(24.dp))
-            LoadImage("ic_refresh", "refresh", Modifier.size(24.dp).clickable { LoadingState.show() })
+            LoadImage("ic_refresh", "refresh", Modifier.size(24.dp).clickable { viewModel.fetchSensorData() })
         }
 
         // 주안역 방향 텍스트
