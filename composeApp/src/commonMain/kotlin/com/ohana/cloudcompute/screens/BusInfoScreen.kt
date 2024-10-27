@@ -275,7 +275,7 @@ fun BusInfoCard(
                 .padding(vertical = 4.dp, horizontal = 6.dp)
         ) {
             Text(
-                text = if (busNumber == "셔틀버스") {
+                text = if (busNumber == "셔틀") {
                     busNumber
                 } else {
                     "$busNumber 번"
