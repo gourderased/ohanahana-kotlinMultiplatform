@@ -16,6 +16,7 @@ import com.ohana.cloudcompute.screens.projectinfo.ProjectInfoScreen
 import com.ohana.cloudcompute.screens.SensorDataScreen
 import com.ohana.cloudcompute.screens.SensorDataViewModel
 import com.ohana.cloudcompute.screens.SplashScreen
+import com.ohana.cloudcompute.screens.projectinfo.CongestionCriteriaScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -29,7 +30,7 @@ fun App() {
             GlobalLoadingScreen()
             NavHost(
                 navController = navController,
-                startDestination = "mainFeature",
+                startDestination = "congestionCriteria",
             ) {
                 composable("mainFeature") {
                     SplashScreen(navController)
@@ -50,6 +51,9 @@ fun App() {
                 }
                 composable("busInfo") {
                     BusInfoScreen(navController)
+                }
+                composable("congestionCriteria") {
+                    CongestionCriteriaScreen(navController)
                 }
             }
         }

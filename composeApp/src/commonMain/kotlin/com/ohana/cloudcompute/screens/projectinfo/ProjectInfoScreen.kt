@@ -140,7 +140,7 @@ fun ProjectInfoScreen(navController: NavController) {
             titleSmall = "이용 안내",
             titleLarge = "혼잡도 기준",
             onClick = {
-                navController.navigate("mainFeature")
+                navController.navigate("congestionCriteria")
             },
             modifier = Modifier.constrainAs(itemSecond) {
                 top.linkTo(itemFirst.bottom)
