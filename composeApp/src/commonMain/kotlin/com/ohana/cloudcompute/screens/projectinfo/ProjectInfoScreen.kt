@@ -1,4 +1,4 @@
-package com.ohana.cloudcompute.screens
+package com.ohana.cloudcompute.screens.projectinfo
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -29,6 +29,7 @@ import org.jetbrains.compose.resources.painterResource
 fun ProjectInfoScreen(navController: NavController) {
     ConstraintLayout(
         modifier = Modifier
+            .background(Color(0xffFEFEFE))
             .fillMaxSize()
     ) {
         val guidelineTop07 = createGuidelineFromTop(0.07f)

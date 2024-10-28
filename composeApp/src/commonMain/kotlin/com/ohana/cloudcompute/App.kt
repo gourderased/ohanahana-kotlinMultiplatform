@@ -11,8 +11,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ohana.cloudcompute.screens.BusInfoScreen
 import com.ohana.cloudcompute.screens.GlobalLoadingScreen
-import com.ohana.cloudcompute.screens.MainFeatureScreen
-import com.ohana.cloudcompute.screens.ProjectInfoScreen
+import com.ohana.cloudcompute.screens.projectinfo.MainFeatureScreen
+import com.ohana.cloudcompute.screens.projectinfo.ProjectInfoScreen
 import com.ohana.cloudcompute.screens.SensorDataScreen
 import com.ohana.cloudcompute.screens.SensorDataViewModel
 import com.ohana.cloudcompute.screens.SplashScreen
@@ -29,9 +29,9 @@ fun App() {
             GlobalLoadingScreen()
             NavHost(
                 navController = navController,
-                startDestination = "splash",
+                startDestination = "mainFeature",
             ) {
-                composable("splash") {
+                composable("mainFeature") {
                     SplashScreen(navController)
                 }
                 composable("sensorData") {
