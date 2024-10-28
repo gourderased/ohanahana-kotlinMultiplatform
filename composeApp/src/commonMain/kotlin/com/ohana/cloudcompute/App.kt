@@ -17,6 +17,7 @@ import com.ohana.cloudcompute.screens.SensorDataScreen
 import com.ohana.cloudcompute.screens.SensorDataViewModel
 import com.ohana.cloudcompute.screens.SplashScreen
 import com.ohana.cloudcompute.screens.projectinfo.CongestionCriteriaScreen
+import com.ohana.cloudcompute.screens.projectinfo.ExpectedPeopleTimeScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -30,7 +31,7 @@ fun App() {
             GlobalLoadingScreen()
             NavHost(
                 navController = navController,
-                startDestination = "congestionCriteria",
+                startDestination = "expectedPeopleTime",
             ) {
                 composable("mainFeature") {
                     SplashScreen(navController)
@@ -54,6 +55,9 @@ fun App() {
                 }
                 composable("congestionCriteria") {
                     CongestionCriteriaScreen(navController)
+                }
+                composable("expectedPeopleTime") {
+                    ExpectedPeopleTimeScreen(navController)
                 }
             }
         }

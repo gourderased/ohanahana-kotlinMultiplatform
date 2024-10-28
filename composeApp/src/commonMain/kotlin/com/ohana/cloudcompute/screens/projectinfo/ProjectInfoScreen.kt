@@ -152,7 +152,7 @@ fun ProjectInfoScreen(navController: NavController) {
             titleSmall = "이용 안내",
             titleLarge = "예상 대기 인원 및 대기 시간",
             onClick = {
-                navController.navigate("mainFeature")
+                navController.navigate("expectedPeopletime")
             },
             modifier = Modifier.constrainAs(itemThird) {
                 top.linkTo(itemSecond.bottom)
