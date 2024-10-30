@@ -2,7 +2,6 @@ package com.ohana.cloudcompute.screens.projectinfo
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -44,16 +43,12 @@ fun MainFeatureScreen(navController: NavController) {
     ) {
         val guidelineTop07 = createGuidelineFromTop(0.07f)
         val guidelineTop09 = createGuidelineFromTop(0.09f)
-        val guidelineTop13 = createGuidelineFromTop(0.13f)
-        val guidelineTop25 = createGuidelineFromTop(0.25f)
-        val guidelineTop30 = createGuidelineFromTop(0.30f)
 
         val (
             headerRef,
             boxLabelRef,
             boxLabelExplainRef,
             boxFeatureCheckRef,
-            boxFeatureBusRef,
         ) = createRefs()
 
         // 헤더

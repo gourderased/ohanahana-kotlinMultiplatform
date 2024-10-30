@@ -49,7 +49,6 @@ val dataModule = module {
 
 // ViewModel 관련 모듈 정의
 val viewModelModule = module {
-    // ListViewModel 및 DetailViewModel을 Koin에 등록
     factory { SensorDataViewModel(get()) }
     factory { BusViewModel(get()) }
 }

@@ -17,6 +17,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,11 +38,14 @@ import kmp_app_template.composeapp.generated.resources.ic_departure
 import kmp_app_template.composeapp.generated.resources.ic_shuttle
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun BusInfoScreen(navController: NavController) {
 
-    val busData = TestBusData()
+    //val busData = TestBusData()
+    val viewModel: BusViewModel = koinViewModel()
+    val busData by viewModel.busData.collectAsState()
 
     Column(Modifier.fillMaxSize()) {
 
@@ -68,14 +73,13 @@ fun BusInfoScreen(navController: NavController) {
                 modifier = Modifier.align(Alignment.Center)
             )
 
-            LoadImage("ic_refresh", "ic_refresh", Modifier.align(Alignment.CenterEnd))
+            LoadImage("ic_refresh", "ic_refresh", Modifier.align(Alignment.CenterEnd).clickable { viewModel.fetchBusData() })
         }
         Spacer(Modifier.height(8.dp))
 
-        LazyColumn(
-        ) {
-
+        LazyColumn {
             busData?.let { data ->
+                println(data)
                 items(
                     listOf(
                         data.shuttle,
@@ -322,61 +326,61 @@ fun BusInfoCard(
     }
 }
 
-data class TestBusData(
-    val shuttle: BusStopData = BusStopData(
-        busStopName = "교내 셔틀 승강장",
-        busStopNumber = "1",
-        busNumber = "셔틀",
-        remainTime = 10,
-        remainBusStop = 2,
-        congestion = 0,
-        des = "주안역",
-        estimatedTime = 15,
-        isTransfer = false
-    ),
-    val ddg: BusStopData = BusStopData(
-        busStopName = "독정이고개",
-        busStopNumber = "37234",
-        busNumber = "13",
-        remainTime = 5,
-        remainBusStop = 1,
-        congestion = 0,
-        des = "주안역",
-        estimatedTime = 10,
-        isTransfer = false
-    ),
-    val yg: BusStopData = BusStopData(
-        busStopName = "용현고가교",
-        busStopNumber = "37611",
-        busNumber = "511",
-        remainTime = 7,
-        remainBusStop = 0,
-        congestion = 1,
-        des = "주안역",
-        estimatedTime = 12,
-        isTransfer = false
-    ),
-    val inhaFrontGate: BusStopData = BusStopData(
-        busStopName = "인하대정문",
-        busStopNumber = "37099",
-        busNumber = "516",
-        remainTime = 8,
-        remainBusStop = 1,
-        congestion = 1,
-        des = "주안역",
-        estimatedTime = 15,
-        isTransfer = false
-    )
-)
-
-data class BusStopData(
-    val busStopName: String,
-    val busStopNumber: String?,
-    val busNumber: String,
-    val remainTime: Int,
-    val remainBusStop: Int,
-    val congestion: Int,
-    val des: String,
-    val estimatedTime: Int,
-    val isTransfer: Boolean
-)
+//data class TestBusData(
+//    val shuttle: BusStopData = BusStopData(
+//        busStopName = "교내 셔틀 승강장",
+//        busStopNumber = "1",
+//        busNumber = "셔틀",
+//        remainTime = 10,
+//        remainBusStop = 2,
+//        congestion = 0,
+//        des = "주안역",
+//        estimatedTime = 15,
+//        isTransfer = false
+//    ),
+//    val ddg: BusStopData = BusStopData(
+//        busStopName = "독정이고개",
+//        busStopNumber = "37234",
+//        busNumber = "13",
+//        remainTime = 5,
+//        remainBusStop = 1,
+//        congestion = 0,
+//        des = "주안역",
+//        estimatedTime = 10,
+//        isTransfer = false
+//    ),
+//    val yg: BusStopData = BusStopData(
+//        busStopName = "용현고가교",
+//        busStopNumber = "37611",
+//        busNumber = "511",
+//        remainTime = 7,
+//        remainBusStop = 0,
+//        congestion = 1,
+//        des = "주안역",
+//        estimatedTime = 12,
+//        isTransfer = false
+//    ),
+//    val inhaFrontGate: BusStopData = BusStopData(
+//        busStopName = "인하대정문",
+//        busStopNumber = "37099",
+//        busNumber = "516",
+//        remainTime = 8,
+//        remainBusStop = 1,
+//        congestion = 1,
+//        des = "주안역",
+//        estimatedTime = 15,
+//        isTransfer = false
+//    )
+//)
+//
+//data class BusStopData(
+//    val busStopName: String,
+//    val busStopNumber: String?,
+//    val busNumber: String,
+//    val remainTime: Int,
+//    val remainBusStop: Int,
+//    val congestion: Int,
+//    val des: String,
+//    val estimatedTime: Int,
+//    val isTransfer: Boolean
+//)
