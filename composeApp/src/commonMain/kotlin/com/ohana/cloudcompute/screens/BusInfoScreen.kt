@@ -278,11 +278,7 @@ fun BusInfoCard(
                 .padding(vertical = 4.dp, horizontal = 6.dp)
         ) {
             Text(
-                text = if (busNumber == "셔틀") {
-                    busNumber
-                } else {
-                    "$busNumber 번"
-                },
+                text = busNumber,
                 style = TextStyle(
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Normal,

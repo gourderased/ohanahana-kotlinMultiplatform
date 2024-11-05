@@ -152,7 +152,7 @@ fun SensorOperationTimeScreen(navController: NavController) {
                     withStyle(style = SpanStyle(fontWeight = FontWeight.SemiBold)) {
                         append("10:00~21:00")
                     }
-                    append("있니다.")
+                    append("입니다.")
                 },
                 style = TextStyle(
                     fontSize = 14.sp,

@@ -40,6 +40,7 @@ import com.ohana.cloudcompute.pretendardFontFamily
 import io.github.kubode.compose.boxshadow.boxShadow
 import kmp_app_template.composeapp.generated.resources.Res
 import kmp_app_template.composeapp.generated.resources.bg_home_congestion
+import kmp_app_template.composeapp.generated.resources.bg_home_normal
 import kmp_app_template.composeapp.generated.resources.ic_bus_stop
 import kmp_app_template.composeapp.generated.resources.ic_magnify
 import kmp_app_template.composeapp.generated.resources.ic_notice
@@ -72,10 +73,20 @@ fun SensorDataScreen(sensorData: CongestionObject, navController: NavController)
 
 
         val textJuan = createRef()
+        // 혼잡도에 따라 배경 이미지 선택
+        val backgroundImage = when (sensorData.congestion) {
+            "SPARE" -> Res.drawable.bg_home_congestion
+            "NORMAL" -> Res.drawable.bg_home_congestion
+            "CONGESTION" -> Res.drawable.bg_home_congestion
+            "EXTRA" -> Res.drawable.bg_home_congestion
+            "SENSOR_INACTIVE" -> Res.drawable.bg_home_congestion
+            "SENSOR_ERROR" -> Res.drawable.bg_home_congestion
+            else -> Res.drawable.bg_home_congestion
+        }
 
         // 배경 이미지
         Image(
-            painter = painterResource(Res.drawable.bg_home_congestion),
+            painter = painterResource(Res.drawable.bg_home_normal),
             contentDescription = "background",
             modifier = Modifier
                 .fillMaxSize(),
