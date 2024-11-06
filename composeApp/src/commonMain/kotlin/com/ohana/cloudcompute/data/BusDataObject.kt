@@ -14,6 +14,7 @@ data class BusStop(
     val estimatedTime: Int,
     val isTransfer: Boolean,
     val remainTimeText: String = "",
+    val initialRemainTime: Int = remainTime
 )
 
 @Serializable

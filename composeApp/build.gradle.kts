@@ -57,6 +57,9 @@ kotlin {
             implementation(libs.compose.boxshadow)
             implementation(libs.compose.dropshadow)
             implementation(libs.compose.constraintlayout)
+
+            implementation(libs.kotlinx.datetime)
+
         }
     }
 }

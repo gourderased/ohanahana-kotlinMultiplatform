@@ -57,10 +57,10 @@ class SensorDataViewModel(private val congestionApi: CongestionApi) : ViewModel(
 
     private fun processSensorData(data: CongestionObject): SensorDataUiState {
 
-        val congestion = "SENSOR_ERROR"
-        val congestionLevelText = getCongestionLevelText("SENSOR_ERROR")
-        val backgroundImage = getBackgroundImage("SENSOR_ERROR")
-        val iconResource = getIconResource("SENSOR_ERROR")
+        val congestion = data.congestion
+        val congestionLevelText = getCongestionLevelText(data.congestion)
+        val backgroundImage = getBackgroundImage(data.congestion)
+        val iconResource = getIconResource(data.congestion)
 
         // 혼잡도 유효성 확인
         val isValidCongestion = isValidCongestion(congestion)

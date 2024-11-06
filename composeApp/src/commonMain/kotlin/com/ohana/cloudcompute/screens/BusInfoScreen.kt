@@ -43,7 +43,6 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun BusInfoScreen(navController: NavController) {
 
-    //val busData = TestBusData()
     val viewModel: BusViewModel = koinViewModel()
     val busData by viewModel.busData.collectAsState()
 
@@ -98,6 +97,7 @@ fun BusInfoScreen(navController: NavController) {
                         iconArrival = Res.drawable.ic_arrival,
                         textDeparture = busStop.busStopName,
                         textArrival = busStop.des,
+                        remainTime = busStop.remainTime,
                         remainTimeText = busStop.remainTimeText,
                         estimatedTime = busStop.estimatedTime,
                         busNumber = busStop.busNumber
@@ -115,6 +115,7 @@ fun BusInfoCard(
     iconArrival: DrawableResource,
     textDeparture: String,
     textArrival: String,
+    remainTime: Int,
     remainTimeText: String,
     estimatedTime: Int,
     busNumber: String
@@ -163,7 +164,7 @@ fun BusInfoCard(
         )
 
         Text(
-            text = estimatedTime.toString(),
+            text = if (remainTimeText == "정보없음") "-" else estimatedTime.toString(),
             style = TextStyle(
                 fontSize = 24.sp,
                 fontWeight = FontWeight.SemiBold,
@@ -179,7 +180,7 @@ fun BusInfoCard(
                 .padding(start = 8.dp)
         )
         Text(
-            text = " 분",
+            text = if (remainTime == -1) "" else " 분",
             style = TextStyle(
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Medium,
@@ -291,7 +292,7 @@ fun BusInfoCard(
             style = TextStyle(
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Normal,
-                color = Color(0xffD61c1c)
+                color = if (remainTimeText == "정보없음") Color(0xFF666666) else Color(0xffD61c1c)
             ),
             modifier = Modifier
                 .padding(start = 8.dp)
@@ -320,62 +321,3 @@ fun BusInfoCard(
 
     }
 }
-
-//data class TestBusData(
-//    val shuttle: BusStopData = BusStopData(
-//        busStopName = "교내 셔틀 승강장",
-//        busStopNumber = "1",
-//        busNumber = "셔틀",
-//        remainTime = 10,
-//        remainBusStop = 2,
-//        congestion = 0,
-//        des = "주안역",
-//        estimatedTime = 15,
-//        isTransfer = false
-//    ),
-//    val ddg: BusStopData = BusStopData(
-//        busStopName = "독정이고개",
-//        busStopNumber = "37234",
-//        busNumber = "13",
-//        remainTime = 5,
-//        remainBusStop = 1,
-//        congestion = 0,
-//        des = "주안역",
-//        estimatedTime = 10,
-//        isTransfer = false
-//    ),
-//    val yg: BusStopData = BusStopData(
-//        busStopName = "용현고가교",
-//        busStopNumber = "37611",
-//        busNumber = "511",
-//        remainTime = 7,
-//        remainBusStop = 0,
-//        congestion = 1,
-//        des = "주안역",
-//        estimatedTime = 12,
-//        isTransfer = false
-//    ),
-//    val inhaFrontGate: BusStopData = BusStopData(
-//        busStopName = "인하대정문",
-//        busStopNumber = "37099",
-//        busNumber = "516",
-//        remainTime = 8,
-//        remainBusStop = 1,
-//        congestion = 1,
-//        des = "주안역",
-//        estimatedTime = 15,
-//        isTransfer = false
-//    )
-//)
-//
-//data class BusStopData(
-//    val busStopName: String,
-//    val busStopNumber: String?,
-//    val busNumber: String,
-//    val remainTime: Int,
-//    val remainBusStop: Int,
-//    val congestion: Int,
-//    val des: String,
-//    val estimatedTime: Int,
-//    val isTransfer: Boolean
-//)
