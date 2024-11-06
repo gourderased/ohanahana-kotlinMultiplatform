@@ -33,7 +33,7 @@ class KtorCongestionApi(private val client: HttpClient) : CongestionApi {
             e.printStackTrace() // 예외 스택 트레이스를 출력하여 디버깅에 도움을 줌
 
             // 예외가 발생한 경우 빈 리스트 반환
-            CongestionObject("", "", "", "", "")
+            CongestionObject("", "", "", 0, "")
         }
     }
 }

@@ -98,7 +98,7 @@ fun BusInfoScreen(navController: NavController) {
                         iconArrival = Res.drawable.ic_arrival,
                         textDeparture = busStop.busStopName,
                         textArrival = busStop.des,
-                        remainTime = busStop.remainTime,
+                        remainTimeText = busStop.remainTimeText,
                         estimatedTime = busStop.estimatedTime,
                         busNumber = busStop.busNumber
                     )
@@ -115,7 +115,7 @@ fun BusInfoCard(
     iconArrival: DrawableResource,
     textDeparture: String,
     textArrival: String,
-    remainTime: Int,
+    remainTimeText: String,
     estimatedTime: Int,
     busNumber: String
 ) {
@@ -193,7 +193,6 @@ fun BusInfoCard(
                 }
                 .padding(bottom = 4.dp)
         )
-
 
         Divider(
             color = Color(0xffEBEBEB),
@@ -288,7 +287,7 @@ fun BusInfoCard(
         }
 
         Text(
-            text = "$remainTime" +"분 전",
+            text = remainTimeText,
             style = TextStyle(
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Normal,
