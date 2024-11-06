@@ -38,12 +38,7 @@ fun App() {
                     SplashScreen(navController)
                 }
                 composable("sensorData") {
-                    val viewModel: SensorDataViewModel = koinViewModel()
-                    val sensorData by viewModel.sensorData.collectAsState()
-
-                    sensorData?.let {
-                        SensorDataScreen(it, navController)
-                    }
+                    SensorDataScreen(navController)
                 }
                 composable("projectInfo") {
                     ProjectInfoScreen(navController)

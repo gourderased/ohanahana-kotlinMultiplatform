@@ -12,7 +12,8 @@ data class BusStop(
     val congestion: Int,
     val des: String,
     val estimatedTime: Int,
-    val isTransfer: Boolean
+    val isTransfer: Boolean,
+    val remainTimeText: String = "",
 )
 
 @Serializable
