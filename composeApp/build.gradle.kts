@@ -25,6 +25,7 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            freeCompilerArgs += "-Xbinary=bundleId=com.ohanahana.cloudcompute"
         }
     }
 
@@ -65,15 +66,15 @@ kotlin {
 }
 
 android {
-    namespace = "com.ohana.cloudcompute"
+    namespace = "com.ohanahana.cloudcompute"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.ohana.cloudcompute"
+        applicationId = "com.ohanahana.cloudcompute"
         minSdk = 24
         targetSdk = 35
-        versionCode = 7
-        versionName = "2.01"
+        versionCode = 1
+        versionName = "1.00"
     }
     packaging {
         resources {
